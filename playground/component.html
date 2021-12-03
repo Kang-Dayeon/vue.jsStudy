@@ -10,6 +10,7 @@
     <div id="app">
         <app-header></app-header>
         <app-content></app-content>
+        <app-footer></app-footer>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -24,7 +25,12 @@
         })
 
         new Vue({
-            el: '#app'
+            el: '#app',
+            components: {
+                'app-footer': {
+                    template: '<footer>footer</footer>'
+                }
+            }
         });
         //Vue 라는 생성자 함수를 만들어준다 이 함수는 #app이라는 아이디를 가지고 있는 element를 불러오고있다.
     </script>

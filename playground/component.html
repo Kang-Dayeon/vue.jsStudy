@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <app-header></app-header>
+        <app-content></app-content>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        Vue.component('app-header', {
+            template: '<h1>Header</h1>'
+        });
+        //Vue함수에 html에서 사용가능한 컴포넌트 태그를 등록함
+        //계속 쓸 태그를 만들어준다고 생각하면 쉽다. ex)header나 footer같이 계속 쓰는 부분 = 컴포넌트
+        Vue.component('app-content', {
+            template: '<div>Content</div>'
+        })
+
+        new Vue({
+            el: '#app'
+        });
+        //Vue 라는 생성자 함수를 만들어준다 이 함수는 #app이라는 아이디를 가지고 있는 element를 불러오고있다.
+    </script>
+</body>
+</html>

@@ -9,21 +9,29 @@
 <body>
     <div id="app">
         <app-header v-bind:propsdata="message"></app-header>
+        <app-content v-bind:propsdata="num"></app-content>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script>
     var appHeader = {
-        template: '<h1>header</h1>',
+        template: '<h1>{{ propsdata }}</h1>', //리엑티비티 : 화면에 보여줄 내용
+        props: ['propsdata'] //props로 데이터 내용을 전달한다 (상위 -> 하위로 전달)
+    }
+
+    var appContent = {
+        template: '<div>{{ propsdata }}</div>',
         props: ['propsdata']
     }
-    new Vue({
-        el: '#app',
-        components: {
-            'app-header': appHeader
+    new Vue({// Vue라는 인스턴스를 만듬 (저장장소라고 이해함)
+        el: '#app',//#app이라는 아이디명을 가진 태그와 연결함
+        components: {// 바로 쓸 수 있는 컨텐트들(태그)을 만들어줌 = 컴포넌트
+            'app-header': appHeader, //app-header에는 appHeader라는 변수를 값으로 넣어줬다
+            'app-content': appContent
         },
-        data: {
-            message: 'hi'
+        data: {//데이터 정보를 저장
+            message: 'hi',
+            num: 10
         }
     })
 </script>
